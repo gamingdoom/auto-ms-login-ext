@@ -1,4 +1,4 @@
-# Automatic Microsft Login
+# Automatic Microsoft Login
 A Browser Extension to Automatically Login to Microsoft with 2FA TOTP
 
 ## The Problem

@@ -7,7 +7,7 @@ I find the process required to login to my Purdue account really annoying. It ma
 ## How It Works
 This extension has a configuration UI which can be used to enter the TOTP secret. This secret is then read from storage when login.microsoftonline.com loads. It looks for the buttons and input fields where the login screen asks you for your password and a TOTP code. It then generates a TOTP code from the store TOTP secret, inputs it into the TOTP input box, and hits next.
 
-![System diagram](docs/Automatic MS Login System Diagram.pdf)
+![System diagram](docs/Automatic%20MS%20Login%20System%20Diagram.pdf)
 
 ## Tech Stack
 

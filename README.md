@@ -17,13 +17,17 @@ This extension has a configuration UI which can be used to enter the TOTP secret
 
 ## Building the Extension
 ```bash
-https://github.com/gamingdoom/auto-ms-login-ext
+npm i web-ext@latest
+git clone https://github.com/gamingdoom/auto-ms-login-ext
 cd auto-ms-login-ext
 web-ext build
 ```
+Once built, you can temporarily load it by going to [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) in Firefox and clicking "Load Temporary Add-on..."
+
+You can't install your the extension that you build yourself, since extensions need to be signed by Mozilla before you can install them.
 
 ## Using the Extension
-You will have to get the extension signed by Mozilla to actually install it, but you can test it by going to [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) and clicking "Load Temporary Add-on..."
+You can download the signed extension from the Github releases page and install it in your browser.
 
 ## Roadmap
 - [x] Mobile Support

@@ -56,7 +56,15 @@ async function run() {
             return;
         }
 
-        // TODO error checking: totp supported and secret actually exists
+        if (!secret) {
+            console.error("Auto MS Login: No 2FA secret found in storage!");
+            return;
+        }
+
+        if (!TOTP.isCompatible()) {
+            console.error("Auto MS Login: TOTP code generation not supported in this browser!");
+            return;
+        }
 
         // Parameters
         let period = 30;

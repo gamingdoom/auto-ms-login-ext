@@ -33,6 +33,12 @@ async function run() {
             resolve(data["2fa_secret"]);
         });
     })
+
+    if (!secret) {
+        console.error("Auto MS Login: No 2FA secret found in storage!");
+        return;
+    }
+
     secret = secret.toString();
 
     // Check whether #loginHeader (password page) or #idDiv_SAOTCC_Title (2fa page) is present first.
@@ -53,11 +59,6 @@ async function run() {
         // Double check that we are on the 2fa page
         if (codeTitleDiv.innerText !== "Enter code") {
             console.error("Auto MS Login: Not actually on 2FA page!");
-            return;
-        }
-
-        if (!secret) {
-            console.error("Auto MS Login: No 2FA secret found in storage!");
             return;
         }
 

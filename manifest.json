@@ -1,7 +1,7 @@
 {
 	"manifest_version": 3,
 	"name": "Auto Microsoft Login",
-	"version": "1.0",
+	"version": "1.1",
 
 	"description": "Autofills Microsoft 2FA code on login pages and logs in automatically.",
 

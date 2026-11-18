@@ -50,7 +50,11 @@ async function run() {
         let codeInputDiv = await waitForElm("#idTxtBx_SAOTCC_OTC");
         let codeNextButton = await waitForElm("#idSubmit_SAOTCC_Continue");
 
-        console.log(codeTitleDiv, codeInputDiv, codeNextButton);
+        // Double check that we are on the 2fa page
+        if (codeTitleDiv.innerText !== "Enter code") {
+            console.error("Auto MS Login: Not actually on 2FA page!");
+            return;
+        }
 
         // TODO error checking: totp supported and secret actually exists
 
@@ -62,16 +66,26 @@ async function run() {
         let secretHex = Convert.base32toHex(secret);
         console.log("2FA secret (hex): " + secretHex);
         let counter = TOTP.getCurrentCounter(period);
-        let code = await TOTP.otp(secretHex, digits, counter, false, true);
+        let code = await TOTP.otp(secretHex, digits, counter, false, false);
 
-        console.log("2FA code: " + code);
+        return;
+
     } else {
         console.log("Password page detected");
 
         let pwTitleDiv = await waitForElm("#loginHeader > div:nth-child(1)");
+
+        // Double check that we are on the password page
+        if (pwTitleDiv.innerText !== "Enter password") {
+            console.error("Auto MS Login: Not actually on password page!");
+            return;
+        }
+
         let pwNextButton = await waitForElm("#idSIButton9");
 
-        console.log(pwTitleDiv, pwNextButton);
+        // Click the next button; assumes that password was autofilled by browser
+        pwNextButton.click();
+
         return;
     }
 }

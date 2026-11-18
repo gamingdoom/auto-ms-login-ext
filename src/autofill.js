@@ -47,7 +47,7 @@ async function run() {
         console.log("2FA page detected");
 
         let codeTitleDiv = await waitForElm("#idDiv_SAOTCC_Title");
-        let codeInputDiv = await waitForElm("#idTxtBx_SAOTCC_OTC");
+        let codeInput = await waitForElm("#idTxtBx_SAOTCC_OTC");
         let codeNextButton = await waitForElm("#idSubmit_SAOTCC_Continue");
 
         // Double check that we are on the 2fa page
@@ -68,8 +68,15 @@ async function run() {
         let counter = TOTP.getCurrentCounter(period);
         let code = await TOTP.otp(secretHex, digits, counter, false, false);
 
-        return;
+        // Fill in the code input
+        codeInput.value = code;
+        // Trigger input event to make sure the page knows the input changed
+        codeInput.dispatchEvent(new Event('input', { bubbles: true }));
 
+        // Click next
+        codeNextButton.click();
+
+        return;
     } else {
         console.log("Password page detected");
 

@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Auto Microsoft Login Config</h1>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    </head>
 
-        <div id="config" style="display: flex; align-items: center; justify-content: center;">
-            <input type="text" id="2fa_secret" placeholder="Enter TOTP Secret">
-            <button id="save">Save</button>
+    <body>
+        <div class="box">
+            <p class="title is-4">Auto Microsoft Login Config</p>
+
+            <div class="field">
+                <label class="label">TOTP Secret</label>
+                <p class="help is-link" id="help_text" style="display: none;">TOTP secret must be 16 characters long.</p>
+                <div class="control">
+                    <input class="input" type="password" id="2fa_secret" placeholder="Enter TOTP Secret">
+                </div>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button id="save" class="button is-link" disabled>Save</button>
+                </div>
+
+                <p class="help is-success" id="success_text" style="display: none;">TOTP secret successfully saved!</p>
+            </div>
         </div>
     </body>
 

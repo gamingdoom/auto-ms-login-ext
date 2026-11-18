@@ -28,7 +28,7 @@ You will have to get the extension signed by Mozilla to actually install it, but
 ## Roadmap
 - [ ] Mobile Support
 - [ ] Other Browsers
-- [ ] Nice UI for inputting TOTP secret
+- [x] Nice UI for inputting TOTP secret
 
 ## Author
 @gamingdoom

@@ -96,7 +96,18 @@ async function run() {
             return;
         }
 
+        let pwInput = await waitForElm("#i0118");
         let pwNextButton = await waitForElm("#idSIButton9");
+
+        // Wait for password to be autofilled by the browser
+        await new Promise((resolve) => {
+            let checkInterval = setInterval(() => {
+                if (pwInput.value !== "") {
+                    clearInterval(checkInterval);
+                    resolve();
+                }
+            }, 100);
+        });
 
         // Click the next button; assumes that password was autofilled by browser
         pwNextButton.click();

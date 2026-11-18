@@ -7,7 +7,7 @@ var successText = document.getElementById('success_text');
 // a) accessed by the main login script
 // b) synced across devices.
 saveBtn.addEventListener('click', () => {
-    chrome.storage.sync.set({ '2fa_secret': document.getElementById('2fa_secret').value });
+    chrome.storage.sync.set({ '2fa_secret': secretInput.value });
 
     // Clear the input field so it makes it feel like it has been saved.
     secretInput.value = '';

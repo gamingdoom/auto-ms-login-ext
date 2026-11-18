@@ -26,7 +26,7 @@ web-ext build
 You will have to get the extension signed by Mozilla to actually install it, but you can test it by going to [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox) and clicking "Load Temporary Add-on..."
 
 ## Roadmap
-- [ ] Mobile Support
+- [x] Mobile Support
 - [x] Other Browsers
 - [x] Nice UI for inputting TOTP secret
 
